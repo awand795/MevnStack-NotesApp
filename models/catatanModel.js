@@ -1,14 +1,22 @@
 const mongoose = require('mongoose');
 
 const catatanSchema = new mongoose.Schema({
-    judul: {
+    title: {
         type: String,
-        required
+        required:true
     },
-    isiCatatan: {
+    note: {
         type: String,
-        required
-    }
+        required:true
+    },
+    date:{
+        type:String,
+        required:true
+    },
+    time:{
+        type:String,
+        required:true
+    },
 });
 
 mongoose.model('Catatan',catatanSchema);

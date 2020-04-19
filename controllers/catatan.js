@@ -4,20 +4,34 @@ const mongoose = require('mongoose');
 const catatanModel = mongoose.model('Catatan');
 
 router.get('/',(req,res)=>{
-    catatanModel.find((err,doc)=>{
-        if(err){
-            res.json({status : "Error", message : err});
-        }
-        else{
-            res.json({status : "Success", data : doc});
-        }
-    });
+    if(req.query.id){
+        catatanModel.findById({_id:req.query.id},(err,doc)=>{
+            if(err){
+                res.json({status:"Error",message:err});
+            }
+            else{
+                res.json({status:"Success",data:doc});
+            }
+        });
+    }
+    else{
+        catatanModel.find((err,doc)=>{
+            if(err){
+                res.json({status:"Error",message:err});
+            }
+            else{
+                res.json({status:"Success",data:doc});
+            }
+        });
+    }
 });
 
 router.post('/',(req,res)=>{
     const catatan = new catatanModel();
-    catatan.judul = req.body.judul;
-    catatan.isiCatatan = req.body.isiCatatan;
+    catatan.title = req.body.title;
+    catatan.note = req.body.note;
+    catatan.date = req.body.date;
+    catatan.time = req.body.time;
     catatan.save((err,doc)=>{
         if(err){
             res.json({status: "Error", message: err});
