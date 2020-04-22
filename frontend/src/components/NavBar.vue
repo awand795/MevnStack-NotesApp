@@ -5,7 +5,7 @@
     <v-app-bar-nav-icon @click="drawer =! drawer"></v-app-bar-nav-icon>
     <h1 class="ml-2 display-1">MyNotes</h1>
     <v-spacer></v-spacer>
-    <v-btn text href="" target="_blank">
+    <v-btn text href="https://github.com/awand795/MevnStack-NotesApp" target="_blank">
       <span class="mr-2">Source Code</span>
       <v-icon>mdi-open-in-new</v-icon>
     </v-btn>
