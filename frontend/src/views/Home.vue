@@ -84,7 +84,7 @@ export default {
   name: 'Home',
   data:()=>({
     listNotes:[],
-    url:'http://localhost:5000/api/catatan',
+    url:'api/catatan',
     message:[],
     note:"",
     title:"",

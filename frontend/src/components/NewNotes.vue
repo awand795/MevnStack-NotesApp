@@ -40,7 +40,7 @@ const d = new Date();
 export default {
     name:'NewNotes',
     data:()=>({
-      url:'http://localhost:5000/api/catatan',
+      url:'catatan',
       note:"",
       title:"",
       inputRules:[
