@@ -2,7 +2,7 @@
 <nav>
 
   <v-app-bar dark class="green darken-4" app>
-    <v-app-bar-nav-icon @click="drawer =! drawer"></v-app-bar-nav-icon>
+    <v-btn text ml-0 mr-1 fab><v-icon @click="drawer =! drawer">fa-reorder</v-icon></v-btn>
     <h1 class="ml-2 display-1">MyNotes</h1>
     <v-spacer></v-spacer>
     <v-btn text href="https://github.com/awand795/MevnStack-NotesApp" target="_blank">
