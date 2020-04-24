@@ -2,7 +2,7 @@
 <div class="newnotes">
   <v-snackbar v-model="snackbar" top :timeout="4000" color="success">
     <span>Berhasil Menambahkan Catatan Baru</span>
-    <v-btn flat text color="white" @click="snackbar = false">Close</v-btn>
+    <v-btn text color="white" @click="snackbar = false">Close</v-btn>
   </v-snackbar>
 
     <v-card class="green darken-3 mt-2 pt-6 pb-6 ml-10 mr-10 rounded-corner">

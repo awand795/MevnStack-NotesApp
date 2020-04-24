@@ -2,15 +2,15 @@
   <div class="home">
     <v-snackbar v-model="snackbar" top :timeout="4000" color="success">
       <span>Berhasil Menambahkan Catatan Baru</span>
-      <v-btn flat text color="white" @click="snackbar = false">Close</v-btn>
+      <v-btn text color="white" @click="snackbar = false">Close</v-btn>
     </v-snackbar>
     <v-snackbar v-model="snackdelete" top :timeout="4000" color="success">
       <span>Berhasil Menghapus Catatan</span>
-      <v-btn flat text color="white" @click="snackdelete = false">Close</v-btn>
+      <v-btn text color="white" @click="snackdelete = false">Close</v-btn>
     </v-snackbar>
     <v-snackbar v-model="snackedit" top :timeout="4000" color="success">
       <span>Berhasil Edit Catatan</span>
-      <v-btn flat text color="white" @click="snackedit =false">Close</v-btn>
+      <v-btn text color="white" @click="snackedit =false">Close</v-btn>
     </v-snackbar>
 
     <v-row wrap>
@@ -19,10 +19,12 @@
         <v-card class="grey lighten-2 ml-6 mr-6 mt-8 mb-8 pb-4 pt-4 rounded-corner" v-for="note in listNotes" :key="note._id">
           <p class="ml-4 mb-0 font-weight-bold">{{note.title}}<br/><span class="caption grey--text text--darken-2 mt-0">{{note.date}}</span> <span class="ml-1 caption grey--text text--darken-2 mt-0">{{note.time}}</span></p>
           <p class="ml-4 mt-4 font-weight-light body-2">{{note.note}}</p>
-          <v-btn fab depressed small dark flat text right href="" @click="deleteNotes(note._id)"><v-icon small>mdi-delete</v-icon></v-btn>
+          <v-btn fab depressed small dark text right href="" @click="deleteNotes(note._id)"><v-icon small>mdi-delete-empty</v-icon></v-btn>
           
           <v-dialog max-width="600px" v-model="dialog">
-          <v-btn fab depressed small dark flat text right slot="activator" @click="editnotes(note._id)"><v-icon small>mdi-edit</v-icon></v-btn>
+          <template v-slot:activator="{on}">
+          <v-btn fab depressed small dark text right v-on="on" @click="editnotes(note._id)"><v-icon small>mdi-comment-edit-outline</v-icon></v-btn>
+          </template>
           <v-card class="grey lighten-1">
             <v-card-title>
                 <h3>Edit Notes</h3>
